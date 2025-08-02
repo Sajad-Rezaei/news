@@ -1,0 +1,343 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: 'IRANSans';
+    src: url("../fonts/IRANSans-Bold.eot?#") format('eot'),
+         url("../fonts/IRANSans-Bold.woff") format('woff');
+    font-weight: bold;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    direction: rtl;
+    font-family: 'IRANSans', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.8;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+/* هدر و منوی بالا */
+.topmenu {
+    background: linear-gradient(to left, #00796b, #004d40);
+    padding: 15px 0;
+    color: white;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 12px;
+}
+
+.topmenu .socialicons {
+    display: none;
+}
+
+.topmenu ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    justify-content: start;
+    padding: 0;
+    margin: 0;
+}
+
+.topmenu ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 16px;
+    transition: background 0.3s ease;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+.topmenu ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffe082;
+}
+
+.clear {
+    clear: both;
+}
+
+/* عنوان خبرها */
+.titlezone {
+    margin: 30px 0 10px;
+    border-bottom: 3px solid #004d40;
+    text-align: center;
+}
+
+.titlezone h3 {
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #097f6b;
+    color: white;
+    padding: 10px 80px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    display: inline-block;
+}
+
+/* منوی دسته‌بندی پایین عنوان */
+.mainmenus {
+    margin-top: 15px;
+}
+
+.mainmenus ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px 0;
+}
+
+.mainmenus ul li {
+    position: relative;
+}
+
+.mainmenus ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #004d40;
+    padding: 8px 15px;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.mainmenus ul li:hover a {
+    background-color: #004d40;
+    color: #fff;
+    border-color: #004d40;
+}
+
+.mainmenus ul li ul {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    display: none;
+    min-width: 160px;
+    z-index: 10;
+    border-radius: 6px;
+}
+
+.mainmenus ul li:hover ul {
+    display: block;
+}
+
+.mainmenus ul li ul li {
+    padding: 0;
+}
+
+.mainmenus ul li ul li a {
+    padding: 10px;
+    color: #444;
+    background-color: #fff;
+}
+
+.mainmenus ul li ul li a:hover {
+    background-color: #eeeeee;
+    color: #004d40;
+}
+
+/* بخش کارت‌های کوچک افقی در صفحه اصلی */
+/* -- این بخش تغییر یافته و جایگزین شده با news-cards-container -- */
+/* کانتینر اصلی کارت‌ها - نمایش ۴ کارت کنار هم */
+.news-cards-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 40px;
+    flex-wrap: nowrap;
+    overflow-x: auto; /* اگر صفحه کوچک شد اسکرول افقی */
+    padding-bottom: 10px;
+}
+
+/* کارت هر خبر */
+.news-card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    width: 23%; /* تقریبا 4 کارت در یک ردیف */
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.news-img-link {
+    display: block;
+    border-radius: 15px 15px 0 0;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.news-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+}
+
+/* محتوای داخل کارت */
+.news-content {
+    padding: 12px 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* تیتر خبر */
+.news-title {
+    font-family: 'IRANSans', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    color: #004d40;
+    margin-bottom: 8px;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* متا دیتا (نویسنده، تاریخ، دسته) */
+.news-meta {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 8px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.news-meta i {
+    margin-left: 5px;
+    color: #00796b;
+}
+
+/* متن کوتاه خبر */
+.news-excerpt {
+    font-size: 14px;
+    color: #555;
+    flex-grow: 1;
+    line-height: 1.5;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* محدود به ۳ خط */
+    -webkit-box-orient: vertical;
+}
+
+/* پست‌ها / اخبار بخش پایین‌تر */
+.postbox {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.postbox:hover {
+    transform: translateY(-5px);
+}
+
+.postbox img {
+    float: right;
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    margin-left: 20px;
+    object-fit: cover;
+}
+
+.postbox h2 {
+    font-size: 20px;
+    color: #004d40;
+    margin-bottom: 10px;
+}
+
+.postmetas {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.postmetas i {
+    margin-left: 5px;
+    color: #00796b;
+}
+
+.postmetas p {
+    margin-top: 10px;
+    text-align: justify;
+    line-height: 1.9;
+}
+
+.postbox a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* فوتر پروژه */
+.im p {
+    background: #004d40;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 0 0 10px 10px;
+    margin-top: 40px;
+}
+
+/* ریسپانسیو */
+@media screen and (max-width: 992px) {
+    .news-cards-container {
+        flex-wrap: wrap;
+        gap: 15px;
+        overflow-x: visible;
+    }
+    .news-card {
+        width: 48%; /* دو کارت در هر ردیف */
+        margin-bottom: 20px;
+    }
+    .mainmenus ul {
+        flex-direction: column;
+        gap: 5px;
+    }
+    .topmenu ul {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    .postbox {
+        display: block;
+    }
+    .postbox img {
+        float: none;
+        display: block;
+        margin: 0 auto 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .news-card {
+        width: 100%; /* یک کارت در هر ردیف */
+    }
+}
